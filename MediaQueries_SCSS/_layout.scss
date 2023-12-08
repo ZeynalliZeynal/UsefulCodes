@@ -1,0 +1,38 @@
+$screen: (
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+  'xxl': 1400px,
+);
+$container: (
+  'sm': 540px,
+  'md': 720px,
+  'lg': 960px,
+  'xl': 1140px,
+  'xxl': 1320px,
+);
+
+@media screen and (width < 576px) {
+  .container {
+    max-width: auto;
+  }
+  @for $col from 1 through 12 {
+    .col-#{$col} {
+      flex-basis: calc(100% / 12 * $col);
+    }
+  }
+}
+
+@each $size, $width in $screen {
+  @media screen and (width >= $width) {
+    .container {
+      max-width: map-get($map: $container, $key: $size);
+    }
+    @for $col from 1 through 12 {
+      .col-#{$size}-#{$col} {
+        flex-basis: calc(100% / 12 * $col);
+      }
+    }
+  }
+}
