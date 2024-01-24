@@ -1,5 +1,5 @@
 'use strict'
-const products = [
+let products = [
   {
     id: 1,
     title: 'iPhone 9',
@@ -649,7 +649,14 @@ const cardRow = document.querySelector('[data-row]')
 const searchInput = document.querySelector('[data-search]')
 const submitBtn = document.querySelector('[data-submitBtn]')
 
-const loopFunc = function (param) {
+function deleteItem(id) {
+  products = products.filter((item) => item.id !== id)
+
+  products.length ? loopFunc(products) : (cardRow.innerHTML = 'Empty')
+}
+
+function loopFunc(param) {
+  cardRow.innerHTML = ''
   param.forEach(
     (product) =>
       (cardRow.innerHTML += `
@@ -665,7 +672,7 @@ const loopFunc = function (param) {
                 <li class="list-group-item">${product.stock} in stock</li>
                 <li class="list-group-item">⭐${product.rating}</li>
               </ul>
-              <button class="btn btn-primary">Delete item</button>
+              <button class="btn btn-primary" onclick="deleteItem(${product.id})">Delete item</button>
             </div>
           </div>
                           
@@ -675,6 +682,9 @@ const loopFunc = function (param) {
 
 loopFunc(products)
 
-submitBtn.addEventListener('click', (e) => {
-  console.log(e.target)
+submitBtn.addEventListener('click', () => {
+  let filteredData = products.filter((item) =>
+    item.title.toLowerCase().includes(searchInput.value.toLowerCase())
+  )
+  filteredData.length ? loopFunc(filteredData) : (cardRow.innerHTML = 'Empty')
 })
