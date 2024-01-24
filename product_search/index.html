@@ -10,18 +10,18 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <style>
+      .row {
+        row-gap: 2rem;
+      }
+      .card {
+        height: 100%;
+      }
+      [data-search] {
+        width: 50%;
+      }
+    </style>
   </head>
-  <style>
-    .row {
-      row-gap: 2rem;
-    }
-    .card {
-      height: 100%;
-    }
-    [data-search] {
-      width: 50%;
-    }
-  </style>
   <script defer src="script.js"></script>
   <body>
     <header>
@@ -37,8 +37,13 @@
               <input type="search" data-search />
               <button type="submit" data-submitBtn>search</button>
             </div>
+            <div class="col-8">
+              <div class="row" data-row></div>
+            </div>
+            <div class="col-4">
+              <div class="addToCardList" data-card-list></div>
+            </div>
           </div>
-          <div class="row mt-5" data-row></div>
         </div>
       </section>
     </main>
