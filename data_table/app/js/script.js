@@ -21,4 +21,79 @@ const data = [
   { name: 'Monero', ticker: 'XMR', value: '79.523', change: '3.45%' },
   { name: 'TRON', ticker: 'TRX', value: '0.020881', change: '5.21%' },
 ]
-console.log(data)
+
+const headRow = document.querySelector('.head-row')
+const tableRow = document.querySelector('.table-body')
+const searchInput = document.querySelector('.search-bar input')
+const btnImg = document.querySelector('.btn--secondary img')
+
+Object.keys(data[0]).forEach(
+  (key) =>
+    (headRow.innerHTML += `
+                  <button class="head-column">
+                    <span class="heading">${key.toUpperCase()}</span>
+                    <span class="sort-icon">
+                      <img src="./app/assets/icons/column-sorting.svg" alt=""/>
+                    </span>
+                  </button>
+`)
+)
+
+// * rendering data
+loopData(data)
+
+// * Search bar typing event
+searchInput.addEventListener('keyup', () => {
+  tableRow.innerHTML = ''
+  let filteredData = data.filter(
+    (item) =>
+      item.name.toLowerCase().includes(searchInput.value.toLowerCase()) ||
+      item.ticker.toLowerCase().includes(searchInput.value.toLowerCase())
+  )
+
+  if (filteredData.length) {
+    loopData(filteredData)
+  } else {
+    tableRow.innerHTML += `<img width="200" height="200" src="./app/assets/image/2748558.png" alt="not found" />`
+  }
+})
+
+// ! PROBLEM YARANDI!!!
+const checkboxList = document.querySelectorAll('.checkbox input')
+checkboxList.forEach((checkbox) => {
+  checkbox.addEventListener('change', (e) => {
+    if (e.target.checked) btnImg.src = './app/assets/icons/trash-filled.svg'
+    else btnImg.src = './app/assets/icons/filter.svg'
+  })
+})
+
+// ! BUNA DA BAXILMALIDI
+const headColumnList = document.querySelectorAll('.head-column')
+headColumnList.forEach((headColumn) => {
+  headColumn.addEventListener('click', (e) => {
+    if (!e.target.classList.contains('heading')) return
+    data.sort((a, b) => a.name.localeCompare(b.name))
+  })
+})
+
+function loopData(param) {
+  param.forEach((item) => {
+    tableRow.innerHTML += `
+    <div class="body-row">
+      <div class="body-column">
+        <span class="checkbox">
+          <input type="checkbox" />
+        </span>
+      </div>
+      <div class="body-column">${item.name}</div>
+      <div class="body-column">${item.ticker}</div>
+      <div class="body-column">${item.value}</div>
+      <div class="body-column ${
+        +item.change.slice(0, item.change.length - 1) >= 0
+          ? 'green-txt'
+          : 'red-txt'
+      }">${item.change}</div>
+    </div>
+  `
+  })
+}
