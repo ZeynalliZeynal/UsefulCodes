@@ -463,4 +463,90 @@ section {
   background-repeat: no-repeat;
 }
 
+.btn {
+  border-radius: 6px;
+  padding: 8px 12px;
+  transition: all 0.15s linear;
+}
+.btn--primary {
+  gap: 0.5rem;
+  color: rgb(255, 255, 255);
+  background-color: rgb(34, 100, 229);
+  box-shadow: 0px 2px 5px 0px rgba(34, 100, 229, 0.12), 0px 0px 0px 1px #2264e5, 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 0px 0px #4b85fa inset;
+}
+.btn--primary:hover {
+  background-color: rgb(19, 84, 212);
+  box-shadow: 0px 4px 10px -2px rgba(19, 84, 212, 0.24), 0px 0px 0px 1px #1354d4, 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 0px 0px #4b85fa inset;
+}
+.btn--primary:hover .plus-icon {
+  transform: rotate(-90deg);
+}
+.btn--primary .plus-icon {
+  transition: all 0.3s linear;
+}
+.btn--secondary {
+  box-shadow: 0px 2px 5px 0px rgba(89, 96, 120, 0.1), 0px 0px 0px 1px rgba(70, 79, 96, 0.16), 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+}
+.btn--secondary:hover {
+  box-shadow: 0px 4px 10px -2px rgba(89, 96, 120, 0.2), 0px 0px 0px 1px rgba(70, 79, 96, 0.32), 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+}
+.btn--invisible-bg {
+  padding: 4px;
+  border-radius: 4px;
+}
+.btn:active {
+  box-shadow: 0px 2px 5px 0px rgba(34, 100, 229, 0.12), 0px 0px 0px 4px rgba(1, 178, 237, 0.36), 0px 0px 0px 1px #2264e5, 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 0px 0px #4b85fa inset;
+}
+
+.data_table {
+  width: 1020px;
+  height: 740px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.08), 0px 1px 4px 0px rgba(69, 75, 87, 0.12), 0px 0px 0px 1px rgba(152, 161, 178, 0.1);
+}
+.data_table .table-top {
+  padding: 16px 20px;
+  background: rgba(244, 247, 252, 0.75);
+  backdrop-filter: blur(4px);
+}
+.data_table .table-top .add-list form, .data_table .table-top .add-list form .form-start {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+.data_table .table-top .add-list form .form-start {
+  gap: 1rem;
+}
+.data_table .table-top .add-list form .form-start .filter-icon {
+  padding: 8px 12px;
+  border-radius: 6px;
+  box-shadow: 0px 2px 5px 0px rgba(89, 96, 120, 0.1), 0px 0px 0px 1px rgba(70, 79, 96, 0.16), 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+  background-color: rgb(255, 255, 255);
+  transition: all 0.1s ease-in-out;
+}
+.data_table .table-top .add-list form .form-start .filter-icon:hover {
+  box-shadow: 0px 4px 10px 0px rgba(89, 96, 120, 0.2), 0px 0px 0px 1px rgba(70, 79, 96, 0.24), 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+.data_table .table-top .add-list form .form-start .filter-icon:active {
+  box-shadow: 0px 2px 5px 0px rgba(89, 96, 120, 0.1), 0px 0px 0px 1px rgba(70, 79, 96, 0.16), 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+}
+.data_table .table-top .add-list form .form-start .search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  width: 320px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 0px 1px rgba(104, 113, 130, 0.16), 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
+}
+.data_table .table-top .add-list form .form-start .search-bar input::placeholder {
+  font-size: 14px;
+  color: rgb(161, 169, 184);
+}
+
 /*# sourceMappingURL=style.css.map */

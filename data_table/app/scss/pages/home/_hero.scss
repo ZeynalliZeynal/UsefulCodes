@@ -1,3 +1,62 @@
 @use '../../utils/variable' as *;
 @use '../../utils/mixin' as *;
 @use '../../utils/extend' as *;
+
+.data_table {
+  width: 1020px;
+  height: 740px;
+
+  border-radius: 8px;
+  box-shadow: $table-shadow;
+
+  .table-top {
+    padding: 16px 20px;
+    background: rgba(244, 247, 252, 0.75);
+    backdrop-filter: blur(4px);
+
+    .add-list {
+      form {
+        @include flexbox(center, space-between, wrap);
+        font-size: $fs-300;
+
+        .form-start {
+          @extend form;
+          gap: 1rem;
+
+          .filter-icon {
+            padding: 8px 12px;
+            border-radius: $default-br;
+            box-shadow: $filter-shadow;
+            background-color: $white;
+
+            transition: all 0.1s ease-in-out;
+
+            &:hover {
+              box-shadow: $filter-hover;
+            }
+            &:active {
+              box-shadow: $filter-shadow;
+            }
+          }
+
+          .search-bar {
+            @include flexbox(center, space-between, nowrap, 0.5rem);
+
+            width: 320px;
+            padding: 6px 12px;
+            border-radius: $default-br;
+            background-color: $white;
+
+            box-shadow: $input-shadow;
+            input {
+              &::placeholder {
+                font-size: $fs-300;
+                color: $gray-300;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

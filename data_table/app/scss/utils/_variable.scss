@@ -6,6 +6,7 @@ $default-ff: 'Roboto', serif;
 // Colors
 $blue-0: rgba(235, 240, 250, 1);
 $blue-500: rgba(34, 100, 229, 1);
+$blue-600: rgb(19, 84, 212);
 
 $gray-0: rgba(247, 249, 252, 1);
 $gray-50: rgba(233, 237, 245, 1);
@@ -29,8 +30,20 @@ $red-500: rgba(209, 41, 83, 1);
 $white: rgba(255, 255, 255, 1);
 
 $bg-hover: rgba(242, 245, 250, 1);
+$filter-shadow: 0px 2px 5px 0px rgba(89, 96, 120, 0.1),
+  0px 0px 0px 1px rgba(70, 79, 96, 0.16), 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
+$filter-hover: 0px 4px 10px 0px rgba(89, 96, 120, 0.2),
+  0px 0px 0px 1px rgba(70, 79, 96, 0.24), 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
+$table-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.08),
+  0px 1px 4px 0px rgba(69, 75, 87, 0.12),
+  0px 0px 0px 1px rgba(152, 161, 178, 0.1);
+$input-shadow: 0px 0px 0px 1px rgba(104, 113, 130, 0.16),
+  0px 1px 2px 0px rgba(0, 0, 0, 0.06);
 
 // Font-sizes
 $fs-100: 11px;
 $fs-200: 12px;
 $fs-300: 14px;
+
+// Border radius
+$default-br: 6px;
