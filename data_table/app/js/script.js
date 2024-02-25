@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 const data = [
   { name: 'Bitcoin', ticker: 'BTC', value: '9685', change: '2.83%' },
   { name: 'Ethereum', ticker: 'ETH', value: '210.5', change: '6.17%' },
@@ -20,12 +20,12 @@ const data = [
   { name: 'Stellar', ticker: 'XLM', value: '0.07034', change: '-4.10%' },
   { name: 'Monero', ticker: 'XMR', value: '79.523', change: '3.45%' },
   { name: 'TRON', ticker: 'TRX', value: '0.020881', change: '5.21%' },
-]
+];
 
-const headRow = document.querySelector('.head-row')
-const tableRow = document.querySelector('.table-body')
-const searchInput = document.querySelector('.search-bar input')
-const btnImg = document.querySelector('.btn--secondary img')
+const headRow = document.querySelector('.head-row');
+const tableRow = document.querySelector('.table-body');
+const searchInput = document.querySelector('.search-bar input');
+const btnImg = document.querySelector('.btn--secondary img');
 
 Object.keys(data[0]).forEach(
   (key) =>
@@ -37,44 +37,47 @@ Object.keys(data[0]).forEach(
                     </span>
                   </button>
 `)
-)
+);
+
+// * Sorting data
+const nameCol = document.querySelector('.head-column');
 
 // * rendering data
-loopData(data)
+loopData(data);
 
 // * Search bar typing event
 searchInput.addEventListener('keyup', () => {
-  tableRow.innerHTML = ''
+  tableRow.innerHTML = '';
   let filteredData = data.filter(
     (item) =>
       item.name.toLowerCase().includes(searchInput.value.toLowerCase()) ||
       item.ticker.toLowerCase().includes(searchInput.value.toLowerCase())
-  )
+  );
 
   if (filteredData.length) {
-    loopData(filteredData)
+    loopData(filteredData);
   } else {
-    tableRow.innerHTML += `<img width="200" height="200" src="./app/assets/image/2748558.png" alt="not found" />`
+    tableRow.innerHTML += `<img width="200" height="200" src="./app/assets/image/2748558.png" alt="not found" />`;
   }
-})
+});
 
 // ! PROBLEM YARANDI!!!
-const checkboxList = document.querySelectorAll('.checkbox input')
+const checkboxList = document.querySelectorAll('.checkbox input');
 checkboxList.forEach((checkbox) => {
   checkbox.addEventListener('change', (e) => {
-    if (e.target.checked) btnImg.src = './app/assets/icons/trash-filled.svg'
-    else btnImg.src = './app/assets/icons/filter.svg'
-  })
-})
+    if (e.target.checked) btnImg.src = './app/assets/icons/trash-filled.svg';
+    else btnImg.src = './app/assets/icons/filter.svg';
+  });
+});
 
 // ! BUNA DA BAXILMALIDI
-const headColumnList = document.querySelectorAll('.head-column')
+const headColumnList = document.querySelectorAll('.head-column');
 headColumnList.forEach((headColumn) => {
   headColumn.addEventListener('click', (e) => {
-    if (!e.target.classList.contains('heading')) return
-    data.sort((a, b) => a.name.localeCompare(b.name))
-  })
-})
+    if (!e.target.classList.contains('heading')) return;
+    data.sort((a, b) => a.name.localeCompare(b.name));
+  });
+});
 
 function loopData(param) {
   param.forEach((item) => {
@@ -89,11 +92,19 @@ function loopData(param) {
       <div class="body-column">${item.ticker}</div>
       <div class="body-column">${item.value}</div>
       <div class="body-column ${
-        +item.change.slice(0, item.change.length - 1) >= 0
-          ? 'green-txt'
-          : 'red-txt'
+        +item.change.slice(0, -1) >= 0 ? 'green-txt' : 'red-txt'
       }">${item.change}</div>
     </div>
-  `
-  })
+  `;
+  });
 }
+
+let strArr = ['Zeynal', 'murad', 'fidan', 'aydan', 'anar'];
+let numArr = [100, 2402, -12, 0, 53, 13, -1235411];
+
+strArr.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+console.log(strArr);
+
+numArr.sort((a, b) => a - b);
+
+console.log(numArr);
